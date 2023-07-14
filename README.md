@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Processo Seletivo Java
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descrição 
 
-## Available Scripts
+- Este teste consiste em construir uma camada de serviço, para uma operação muito realizada em bancos, para emissão de extrato bancário.
 
-In the project directory, you can run:
 
-### `npm start`
+## Como executar a aplicação 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Você pode executar a aplicação da maneira que quiser e utilizando a IDE de sua preferência. 
+- Caso queira executar a aplicação via linha de comando, execute primeiramente o comando:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+                   ./mvnw clean package  para linux.
 
-### `npm test`
+                   .\mvnw clean package  para windows.
+- Após isso execute o comando: 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+                             java -jar <...caminhoParaSeuJar>
 
-### `npm run build`
+## Requisitos de sistema
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Possuir a JDK 11 
+- Uma IDE ou editor de sua preferência
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Requisitos do Projeto
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- A sua api deve fornecer os dados de transferência de acordo com o número da conta bacária.
+- Caso não seja informado nenhum filtro, retornar  todos os dados de transferência.
+- Caso seja informado um período de tempo, retornar todas as transferências relacionadas à aquele período de tempo.
+- Caso seja informado o nome do operador da transação, retornar todas as transferências relacionados à aquele operador.
+- Caso todos os filtros sejam informados, retornar todas as transferências com base no período de tempo informado e o nome do operador.
+- Operador de transação nada mais é que, o nome do responsável de destino da transação caso seja uma operação de transferência de saida ou o nome do responsável de onde se originou a transação caso seja uma operação de transferência de entrada.
+- Os valores devem ser de ponto flutuante, e deve-se considerar apenas duas casas decimais.
+- O frontend deve seguir como exemplo o protótipo informado no documento do processo seletivo.
+- No frontend o usuário deve ser capaz de informar um período de tem e/ou nome do operador da transasção como filtros para buscar as transações.
+- As transações devem ser exibidas junto com o saldo total e o saldo total no período de acordo com o protótipo do documento.
 
-### `npm run eject`
+## O que iremos avaliar
+- Cumprimento dos requisitos
+- Qualidade do projeto de API e fluidez da DX
+- Organização do código e boas práticas
+- Domínio das linguagens, bibliotecas e ferramentas utilizadas
+- Organização dos commits
+- Escrita e cobertura de testes
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Sobre a entrega
+- Utilizar o padrão RESTFul para a construção da sua API.
+- Existe um script sql no pacote resources que cotém a modelagem do banco que pode ser seguida, e valores iniciais.
+- Caso julge necessário você poderá criar mais tablas, porém a estrutura inicial não deve ser alterada.
