@@ -3,11 +3,6 @@ import './App.css';
 import Table from './components/Table';
 
 
-function formatDate(dateStr) {
-  let date = new Date(dateStr);
-  return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.000+03:00';
-}
-
 function App() {
 
   const [data, setData] = useState([]);
@@ -18,7 +13,7 @@ function App() {
   //Functions
   function search(dataTransferenciaStart, dataTransferenciaEnd, nomeOperadorTransacao) {
     //Alterar endpoint quando testar
-    const endpoint = 'https://8080-superainova-psjavareact-dtg4g265t05.ws-us101.gitpod.io/getTransferenciasByFilter';
+    const endpoint = 'https://8080-superainova-psjavareact-dtg4g265t05.ws-us101.gitpod.io/api/transferencias/getTransferenciasByFilter/';
     const formData = new URLSearchParams();
     if (dataTransferenciaStart)
       formData.append('dataTransferenciaStart', dataTransferenciaStart);
@@ -49,6 +44,11 @@ function App() {
       .catch(error => {
         console.error(error);
       });
+  }
+
+  function formatDate(dateStr) {
+    let date = new Date(dateStr);
+    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.000+03:00';
   }
 
   //Handlers
@@ -112,6 +112,7 @@ function App() {
               type="text"
               id="nomeOperador"
               value={nomeOperadorTransacao}
+              maxLength={200}
               onChange={(event) => {
                 setNomeOperadorTransacao(event.target.value);
               }}
